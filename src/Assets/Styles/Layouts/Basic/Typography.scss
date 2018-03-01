@@ -1,0 +1,19 @@
+.page-title {
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 0;
+  &-sub {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 10px;
+  }
+}
+a {
+  transition: all 0.3s;
+  &:focus {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  height: 100%;
+  margin-bottom: 60px;
+}
+.navbar-inverse {
+  border-radius: 0;
+}
+.footer {
+  bottom: 0;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  width: 100%;
+  background-color: #eee;
+  > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+  }
+}
+.no-padding {
+  padding: 0;
+}
