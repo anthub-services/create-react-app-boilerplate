@@ -10,9 +10,14 @@
 @import './Layouts/Basic.scss';
 
 // Components
-@import './Components/Buttons/SignOut.scss';
 @import './Components/Alert.scss';
+@import './Components/Buttons/Button.scss';
+@import './Components/Buttons/SignOut.scss';
+@import './Components/DataTable/DataTable.scss';
+@import './Components/DataTable/Filters.scss';
 @import './Components/Form.scss';
+@import './Components/Forms/Admin/User.scss';
+@import './Components/Modal.scss';
 
 // Containers
 @import './Containers/GospelAuthors.scss';

@@ -1,3 +1,6 @@
+html, body {
+  min-width: 768px;
+}
 html {
   min-height: 100%;
   position: relative;
@@ -24,4 +27,7 @@ body {
 }
 .no-padding {
   padding: 0;
+}
+.columns-2 {
+  column-count: 2;
 }

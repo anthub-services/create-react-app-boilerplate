@@ -5,7 +5,9 @@ Required node version is `9.2.1`.
 The client app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 and [Bootstrap 3.3](http://getbootstrap.com/docs/3.3/) framework and theme.
 
-## Starting the App
+## Settings
+
+### Environment Vars
 
 Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
@@ -18,7 +20,11 @@ REACT_APP_API_VERIFY_TOKEN_URL=http://localhost:7770/verify-token
 REACT_APP_API_JWT_SECRET=jwtsecretcode
 ```
 
-Then run the following commands:
+### Config Files
+
+Copy `./src/Config.dist` folder to `Config` and change the configurations if needed.
+
+## Starting the App
 
 ```
 yarn
@@ -91,11 +97,22 @@ With the [Node Express API Mockup Data Boilerplate](https://github.com/anthub-se
 or the [Node Express API Boilerplate](https://github.com/anthub-services/node-express-api-boilerplate) app,
 use the following credentials to test different API responses. Default password for all accounts is `password`.
 
-- **Admin User:** `admin@email.com` - can access all applications
-- **Admin User witout Settings page:** `admin_no_settings@email.com` - no access on admin Settings page
-- **User redirected to internal page:** `referrer@email.com` – when `redirect.url` is set without the domain,
-user shall be redirected to internal page if no location path (referrer) found on the Sign In page
-- **User redirected to external page:** `redirect@email.com` – when `redirect.external` and `redirect.url` are set,
-user shall be redirected to external page if no location path (referrer) found on the Sign In page
-- **Blocked User:** `blocked@email.com` – user is signed in but the account is blocked
-- **Unauthorized User:** simply enter wrong `email` and/or `password`
+| Name              | Email                  | Description |
+|-------------------|------------------------|-------------|
+| Super Admin User  | `superadmin@email.com` | Has wildcard access |
+| Admin User        | `admin@email.com`      | Has wildcard access but `Admin › Users › Delete` is excluded |
+| Common User       | `user@email.com`       | Can access `My Profile`, `Admin › Dashboard`, `Users`, `Users › View, and Settings` |
+| Referrer User     | `referrer@email.com`   | When `redirect` is set without the domain, e.i. `/admin/dashboard`, user shall be redirected to internal page if no location path (referrer) found on the Sign In page |
+| Redirect User     | `redirect@email.com`   | When `redirect` is set with complete URL, e.i. `https://github.com/anthub-services`, user shall be redirected to external page if no location path (referrer) found on the Sign In page |
+| Blocked User      | `blocked@email.com`    | User is signed in but the account is blocked |
+| Unauthorized User | `<any invalid email>`  | Simply enter wrong `email` and/or `password` |
+
+## Docker Boilerplates
+
+The following boilerplates can be used to install and run the API and client boilerplates in a Docker container.
+
+[Docker for Node API Mockup Data and Client Boilerplates](https://github.com/anthub-services/docker-for-node-api-mockup-data-and-client-boilerplates)
+<br />
+[Docker for Node API and Client Boilerplates](https://github.com/anthub-services/docker-for-node-api-and-client-boilerplates)
+<br />
+[Docker for Rails API and Client Boilerplates](https://github.com/anthub-services/docker-for-rails-api-and-client-boilerplates)

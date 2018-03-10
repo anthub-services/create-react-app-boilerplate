@@ -1,3 +1,6 @@
+html, body {
+  min-width: 768px; }
+
 html {
   min-height: 100%;
   position: relative; }
@@ -23,6 +26,9 @@ body {
 
 .no-padding {
   padding: 0; }
+
+.columns-2 {
+  column-count: 2; }
 
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -489,7 +495,8 @@ body {
     width: calc(100% - 200px); }
 
 .layout-admin > footer.footer {
-  position: fixed; }
+  position: fixed;
+  z-index: 1030; }
 
 .layout-admin .sidebar {
   background-color: #f5f5f5;
@@ -529,7 +536,7 @@ body {
   padding: 0 15px 100px; }
 
 .layout footer.footer {
-  z-index: 9999999; }
+  z-index: 1030; }
 
 .page-title {
   font-size: 25px;
@@ -546,6 +553,20 @@ a {
     text-decoration: none; }
     a:focus:hover {
       text-decoration: underline; }
+
+.alert {
+  background-image: none; }
+  .alert.alert-dismissable {
+    padding-right: 15px; }
+    .alert.alert-dismissable button.close {
+      right: -11px;
+      top: -17px; }
+
+.btn:focus, .btn:focus:active, .btn:focus:hover {
+  text-decoration: none; }
+
+.btn-default, .btn-success, .btn-warning, .btn-danger {
+  transition: inherit; }
 
 .sign-out-btn {
   background: transparent;
@@ -576,16 +597,185 @@ a {
   .layout-admin .sidebar .sign-out-btn:hover {
     background-color: #eee; }
 
-.alert {
-  background-image: none; }
-  .alert.alert-dismissable {
-    padding-right: 15px; }
-    .alert.alert-dismissable button.close {
-      right: -11px;
-      top: -17px; }
+.datatable {
+  position: relative; }
+  .datatable-header {
+    position: absolute;
+    right: 0;
+    top: -43px; }
+    .datatable-header * {
+      margin-left: 6px; }
+    .datatable-header a {
+      transition: none; }
+  .datatable-actions {
+    text-align: center; }
+    .datatable-actions > * {
+      margin-left: 7px; }
+    .datatable-actions > :first-child {
+      margin-left: 0; }
+    .datatable-actions-btn {
+      background: transparent;
+      color: #337ab7;
+      cursor: pointer;
+      border: none;
+      padding: 0; }
+      .datatable-actions-btn:hover {
+        color: #23527c;
+        text-decoration: underline; }
+      .datatable-actions-btn:focus {
+        outline: none; }
+
+.ReactTable .rt-thead.-header {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none; }
+
+.ReactTable .rt-thead .rt-th {
+  font-weight: bold; }
+  .ReactTable .rt-thead .rt-th > div {
+    padding: 7px 5px; }
+  .ReactTable .rt-thead .rt-th.rt-resizable-header:focus {
+    outline: none; }
+  .ReactTable .rt-thead .rt-th:not(.-cursor-pointer) {
+    box-shadow: none; }
+
+.ReactTable .rt-tbody .rt-td {
+  border-color: rgba(0, 0, 0, 0.05); }
+
+.ReactTable .pagination-bottom .-pagination {
+  box-shadow: none; }
+
+.datatable-filters {
+  background: #f5f5f5;
+  margin-bottom: 20px;
+  padding: 10px 15px 15px; }
+  .datatable-filters .date-filters {
+    display: flex; }
+    .datatable-filters .date-filters .form-group {
+      margin: 0 3px 15px; }
+  .datatable-filters .column-filters > form > .form-group {
+    margin-bottom: 10px;
+    text-align: center; }
+  .datatable-filters .column-filters > form .form-group fieldset .form-group {
+    display: inline-block;
+    margin: 0 3px 10px;
+    text-align: left;
+    width: 100%; }
+    .datatable-filters .column-filters > form .form-group fieldset .form-group input {
+      width: 100%; }
+    @media (min-width: 769px) {
+      .datatable-filters .column-filters > form .form-group fieldset .form-group {
+        width: 48%; } }
+    @media (min-width: 1143px) {
+      .datatable-filters .column-filters > form .form-group fieldset .form-group {
+        width: 32.65%; } }
+    @media (min-width: 1208px) {
+      .datatable-filters .column-filters > form .form-group fieldset .form-group {
+        width: 24%; } }
+  .datatable-filters .column-filters-buttons {
+    margin-bottom: 0;
+    text-align: center; }
+    .datatable-filters .column-filters-buttons > :first-child {
+      margin-right: 6px; }
+    .datatable-filters .column-filters-buttons .btn {
+      width: 115px; }
+
+.react-datepicker-popper {
+  z-index: 1000; }
+
+.form-wrapper.-default {
+  width: 568px; }
+
+.form-buttons {
+  border-top: 1px solid #e5e5e5;
+  margin-top: -10px;
+  padding-top: 20px;
+  text-align: right; }
+  .form-buttons > * {
+    margin-left: 7px; }
+
+.form .form-group.field-string, .form .form-group.field-array {
+  transition: all 0.5s; }
+
+.form.-loading .form-group.field-string, .form.-loading .form-group.field-array {
+  background: rgba(0, 0, 0, 0.05); }
+  .form.-loading .form-group.field-string *, .form.-loading .form-group.field-array * {
+    visibility: hidden; }
+
+.form-message .alert {
+  margin-bottom: 20px !important; }
 
 .form .error-detail {
-  padding-left: 26px; }
+  padding-left: 20px; }
+
+.form-static.-loading > * {
+  background: rgba(0, 0, 0, 0.05); }
+  .form-static.-loading > * * {
+    visibility: hidden; }
+
+.form-static + .form-buttons {
+  margin-top: 20px; }
+
+label,
+[type=radio],
+[type=checkbox] {
+  cursor: pointer; }
+
+label {
+  width: 100%; }
+
+.checkboxes > * {
+  margin-top: 0; }
+
+.form-control:focus, .form-control:active:focus {
+  box-shadow: none; }
+
+.btn:focus, .btn:focus:active {
+  box-shadow: none;
+  outline: none; }
+
+.help-block {
+  font-size: 13px; }
+
+.form-admin-user [for=user_status] + div + .field-radio-group,
+.form-admin-user [for=user_role] + div + .field-radio-group {
+  display: flex; }
+
+.form-admin-user [for=user_role] + div + .field-radio-group .radio-inline {
+  width: 134px; }
+
+.form-admin-user [for=user_status] + div + .field-radio-group .radio-inline {
+  width: 100%; }
+
+.form-admin-user #user_allowedPaths, .form-admin-user #user_excludedPaths {
+  column-count: 2; }
+
+.modal-header .close:focus {
+  outline: none; }
+
+.modal-body.-form-content {
+  padding-bottom: 5px; }
+  .modal-body.-form-content .alert {
+    margin-top: 5px; }
+  .modal-body.-form-content .form-group.field-object {
+    margin-bottom: 0; }
+
+.modal-body .form-static {
+  margin-bottom: -8px; }
+
+.modal.-confirm .modal-dialog {
+  width: 400px; }
+
+.modal.-confirm .modal-body {
+  padding: 30px 15px;
+  text-align: center; }
+  .modal.-confirm .modal-body .alert {
+    margin-bottom: 0; }
+    .modal.-confirm .modal-body .alert-success {
+      margin-bottom: -6px;
+      margin-top: -6px; }
+    .modal.-confirm .modal-body .alert + * {
+      display: inline-block;
+      margin-top: 15px; }
 
 .gospel-authors .btn:focus {
   outline: none; }

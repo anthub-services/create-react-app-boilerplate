@@ -11,6 +11,7 @@ build
 !bin/css/build
 src/Assets/Styles/**/*.css
 !src/Assets/Styles/Style.css
+src/Config
 
 # misc
 .DS_Store

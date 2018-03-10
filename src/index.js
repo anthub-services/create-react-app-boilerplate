@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Assets/Styles/Style.css'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+const composeEnhancers = initReduxDevTools()
 const appReducer = combineReducers(reducers)
 const rootReducer = (state, action) => {
   if (action.type === AUTH)
@@ -29,3 +29,7 @@ ReactDOM.render(
 )
 
 registerServiceWorker()
+
+function initReduxDevTools() {
+  return process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null
+}

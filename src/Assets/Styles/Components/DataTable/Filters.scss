@@ -1,0 +1,54 @@
+.datatable-filters {
+  background: #f5f5f5;
+  margin-bottom: 20px;
+  padding: 10px 15px 15px;
+  .date-filters {
+    display: flex;
+    .form-group {
+      margin: 0 3px 15px;
+    }
+  }
+  .column-filters {
+    > form {
+      > .form-group {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      .form-group {
+        fieldset {
+          .form-group {
+            display: inline-block;
+            margin: 0 3px 10px;
+            text-align: left;
+            input {
+              width: 100%;
+            }
+            width: 100%;
+            @media (min-width: 769px) {
+              width: 48%;
+            }
+            @media (min-width: 1143px) {
+              width: 32.65%;
+            }
+            @media (min-width: 1208px) {
+              width: 24%;
+            }
+          }
+        }
+      }
+    }
+    &-buttons {
+      margin-bottom: 0;
+      text-align: center;
+      > :first-child {
+        margin-right: 6px;
+      }
+      .btn {
+        width: 115px;
+      }
+    }
+  }
+}
+.react-datepicker-popper {
+  z-index: 1000;
+}

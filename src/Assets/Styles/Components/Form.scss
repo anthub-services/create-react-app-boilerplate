@@ -1,5 +1,83 @@
 .form {
-  .error-detail {
-    padding-left: 26px;
+  &-wrapper {
+    &.-default {
+      width: 568px;
+    }
   }
+  &-buttons {
+    border-top: 1px solid #e5e5e5;
+    margin-top: -10px;
+    padding-top: 20px;
+    text-align: right;
+    > * {
+      margin-left: 7px;
+    }
+  }
+  .form-group {
+    &.field {
+      &-string, &-array {
+        transition: all 0.5s;
+      }
+    }
+  }
+  &.-loading {
+    .form-group {
+      &.field {
+        &-string, &-array {
+          background: rgba(0, 0, 0, 0.05);
+          * {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
+  &-message {
+    .alert {
+      margin-bottom: 20px !important;
+    }
+  }
+  .error-detail {
+    padding-left: 20px;
+  }
+  &-static {
+    &.-loading {
+      > * {
+        background: rgba(0, 0, 0, 0.05);
+        * {
+          visibility: hidden;
+        }
+      }
+    }
+    + .form-buttons {
+      margin-top: 20px;
+    }
+  }
+}
+label,
+[type=radio],
+[type=checkbox] {
+  cursor: pointer;
+}
+label {
+  width: 100%;
+}
+.checkboxes {
+  > * {
+    margin-top: 0;
+  }
+}
+.form-control {
+  &:focus, &:active:focus {
+    box-shadow: none;
+  }
+}
+.btn {
+  &:focus, &:focus:active {
+    box-shadow: none;
+    outline: none;
+  }
+}
+.help-block {
+  font-size: 13px;
 }

@@ -8,9 +8,5 @@ export function setFocus(UISchema, input) {
 }
 
 export function errorList(props) {
-  return (
-    <Alert type="danger" hideDismissButton>
-      <p>Unable to process your request. Please check the form errors below.</p>
-    </Alert>
-  )
+  return <Alert formError />
 }

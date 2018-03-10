@@ -1,0 +1,49 @@
+.modal {
+  &-header {
+    .close {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &-body {
+    &.-form-content {
+      padding-bottom: 5px;
+      .alert {
+        margin-top: 5px;
+      }
+      .form {
+        &-group {
+          &.field-object {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .form-static {
+      margin-bottom: -8px;
+    }
+  }
+  &.-confirm {
+    .modal {
+      &-dialog {
+        width: 400px;
+      }
+      &-body {
+        padding: 30px 15px;
+        text-align: center;
+        .alert {
+          margin-bottom: 0;
+          &-success {
+            margin-bottom: -6px;
+            margin-top: -6px;
+          }
+          + * {
+            display: inline-block;
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

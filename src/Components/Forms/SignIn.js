@@ -18,7 +18,7 @@ export default class SignIn extends Component {
       alertMessage: {},
       showAlertMessage: false,
       isSigningIn: false,
-      redirect: { url: '/' },
+      redirect: '/',
       locationState: props.location.state
     }
   }
@@ -52,9 +52,8 @@ export default class SignIn extends Component {
           redirect: redirect ? redirect : this.state.redirect
         })
 
-        if (!this.state.locationState && redirect && redirect.external) {
-          return window.location.href = redirect.url
-        }
+        if (!this.state.locationState && redirect && redirect.indexOf('http') === 0)
+          return window.location.href = redirect
 
         const _this = this
 
@@ -69,9 +68,8 @@ export default class SignIn extends Component {
       .catch(error => {
         let message  = 'Unable to process your request. Please check your internet connection. If problem persists, contact support.'
 
-        if (error.response && error.response.data.message) {
+        if (error.response && error.response.data.message)
           message = error.response.data.message
-        }
 
         console.log('Error: ', error)
 
@@ -89,7 +87,7 @@ export default class SignIn extends Component {
   render() {
     if (Session.token() && this.props.IsSignedIn) {
       const locationState = this.state.locationState
-      let referrer = this.state.redirect.url;
+      let referrer = this.state.redirect;
 
       if (locationState && locationState.from) {
         const { pathname, search } = locationState.from

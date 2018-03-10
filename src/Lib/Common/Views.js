@@ -64,5 +64,9 @@ export function viewportDimension() {
 }
 
 function navLinkIsActive({...props}) {
-  return props.path === props.to ? 'active' : ''
+  if (!props.path) return ''
+
+  const path = props.path.split('/')
+
+  return `/${path[1]}/${path[2]}` === props.to ? 'active' : ''
 }

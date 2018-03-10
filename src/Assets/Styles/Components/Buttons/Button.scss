@@ -1,0 +1,8 @@
+.btn {
+  &:focus, &:focus:active, &:focus:hover {
+    text-decoration: none;
+  }
+  &-default, &-success, &-warning, &-danger {
+    transition: inherit;
+  }
+}

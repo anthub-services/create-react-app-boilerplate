@@ -1,0 +1,19 @@
+.form-admin-user {
+  [for=user_status] + div + .field-radio-group,
+  [for=user_role] + div + .field-radio-group {
+    display: flex;
+  }
+  [for=user_role] + div + .field-radio-group {
+    .radio-inline {
+      width: 134px;
+    }
+  }
+  [for=user_status] + div + .field-radio-group {
+    .radio-inline {
+      width: 100%;
+    }
+  }
+  #user_allowedPaths, #user_excludedPaths {
+    column-count: 2;
+  }
+}
