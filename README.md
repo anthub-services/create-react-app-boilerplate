@@ -63,12 +63,13 @@ Note: To view the Docker containers, open another terminal console then enter `d
 
 ### Docker
 
-| Command                                | Description                                         |
-|----------------------------------------|-----------------------------------------------------|
-| `./bin/install`                        | Build the Docker container                          |
-| `./bin/start`                          | Start the client app service                        |
-| `./bin/stop`                           | Stop the client app service                         |
-| `./bin/console <container ID or Name>` | Access the terminal console of the container        |
+| Command                                | Description                                                            |
+|----------------------------------------|------------------------------------------------------------------------|
+| `./bin/install`                        | Build the Docker container and start the app                           |
+| `./bin/reinstall`                      | Rebuild the Docker container with the current branch and start the app |
+| `./bin/start`                          | Start the client app service                                           |
+| `./bin/stop`                           | Stop the client app service                                            |
+| `./bin/console <container ID or Name>` | Access the terminal console of the container                           |
 
 ### CSS
 

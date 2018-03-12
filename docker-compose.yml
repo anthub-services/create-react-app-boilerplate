@@ -1,6 +1,7 @@
-version: '2.1'
+version: '3.5'
 services:
   react_client:
+    container_name: react_client
     build: .
     image: react_client
     working_dir: /home/node/app
