@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
 import { NavLink, AuthNavLink } from '../../../Lib/Common/Views'
-import SignOutButton from '../../../Redux/Containers/Sessions/SignOut'
+import SignOutButton from '../../../Redux/Containers/Sessions/SignOutButton'
 
 class Header extends Component {
   render() {
     const path = this.props.match.path
+    const referrer = window.location.pathname
 
     return (
       <header className="header">
@@ -21,7 +22,7 @@ class Header extends Component {
               <NavLink title="Sign In" to="/sign-in" path={path} isSignedOut />
               <AuthNavLink title="Admin" to="/admin/dashboard" />
               <AuthNavLink title="My Profile" to="/my-profile" path={path} />
-              <SignOutButton referrer={path} />
+              <SignOutButton referrer={referrer} />
             </ul>
           </Navbar.Collapse>
         </Navbar>

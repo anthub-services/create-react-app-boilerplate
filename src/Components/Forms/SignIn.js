@@ -88,9 +88,13 @@ export default class SignIn extends Component {
 
   render() {
     if (Session.token() && this.props.IsSignedIn) {
-      const referrer = this.state.locationState
-        ? this.state.locationState.from.pathname
-        : this.state.redirect.url
+      const locationState = this.state.locationState
+      let referrer = this.state.redirect.url;
+
+      if (locationState && locationState.from) {
+        const { pathname, search } = locationState.from
+        referrer = [pathname, search].join('')
+      }
 
       return <Redirect to={referrer} />
     }

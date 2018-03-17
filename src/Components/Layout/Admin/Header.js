@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
 import { NavLink } from '../../../Lib/Common/Views'
-import SignOutButton from '../../../Redux/Containers/Sessions/SignOut'
+import SignOutButton from '../../../Redux/Containers/Sessions/SignOutButton'
 import ReactLogo from '../../../Assets/Images/react-logo.svg'
 
 class Header extends Component {
   render() {
-    const path = this.props.match.path
+    const referrer = window.location.pathname
 
     return (
       <header className="header">
@@ -23,7 +23,7 @@ class Header extends Component {
             <ul className="navbar-nav nav navbar-right">
               <NavLink title="Home" to="/" />
               <NavLink title="Redux" to="/redux" />
-              <SignOutButton referrer={path} />
+              <SignOutButton referrer={referrer} />
             </ul>
           </Navbar.Collapse>
         </Navbar>

@@ -73,11 +73,10 @@ export function verifyToken() {
     Axios
       .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
       .catch(error => {
-        console.log('Error: ', error)
-        Store.remove('token')
+        deleteToken()
         window.location.reload()
       })
-  }, 500);
+  }, 1000);
 }
 
 export function token() {
@@ -94,7 +93,11 @@ export function decodedToken() {
       token(),
       process.env.REACT_APP_API_JWT_SECRET,
       function(errors, decoded) {
-        if (errors) return token()
+        if (errors) {
+          deleteToken()
+          return false
+        }
+
         return decoded
       }
     )

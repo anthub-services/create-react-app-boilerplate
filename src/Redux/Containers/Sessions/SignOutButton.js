@@ -1,10 +1,14 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { auth } from '../../Actions/Sessions'
-import RedirectToSignIn from '../../../Components/RedirectToSignIn'
+import SignOutButton from '../../../Components/Button/SignOut'
+
+function mapStateToProps({ IsSignedIn }) {
+  return { IsSignedIn }
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ auth }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(RedirectToSignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignOutButton)

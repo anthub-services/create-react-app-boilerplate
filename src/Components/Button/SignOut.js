@@ -26,10 +26,6 @@ export default class SignOut extends Component {
       )
     }
 
-    if (['*', '/admin/*'].indexOf(props.referrer) > -1) {
-      return null
-    }
-
     return <Redirect to={props.referrer} />
   }
 }
