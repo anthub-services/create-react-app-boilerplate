@@ -3,6 +3,7 @@ import axios from 'axios'
 import Axios from '../../../Lib/Common/Axios'
 import ConfirmModal from '../../Modals/Confirm'
 import Alert from '../../Alert'
+import * as Session from '../../../Lib/Helpers/Session'
 
 export default class DeleteRecord extends Component {
   constructor(props) {
@@ -32,6 +33,8 @@ export default class DeleteRecord extends Component {
   }
 
   handleDeleteRequest() {
+    if (!Session.decodedToken()) return Session.verifyToken()
+
     this.setState({ deleteRequestInProcess: true })
 
     setTimeout(() => {

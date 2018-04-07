@@ -8,7 +8,7 @@ import Alert from '../../../Alert'
 import { ucFirst } from '../../../../Lib/Helpers/Text'
 import Paths from '../../../../Config/Paths/SuperAdmin'
 import DeleteUserButton from '../../../Buttons/DeleteUser'
-import { isAuthorised } from '../../../../Lib/Helpers/Session'
+import * as Session from '../../../../Lib/Helpers/Session'
 
 export default class User extends Component {
   constructor(props) {
@@ -34,6 +34,8 @@ export default class User extends Component {
   }
 
   handleGetRequest() {
+    if (!Session.decodedToken()) return Session.verifyToken()
+
     const _this = this
     const apiURL = [process.env.REACT_APP_API_USERS_URL, this.state.resourceId].join('/')
     const CancelToken = axios.CancelToken
@@ -169,8 +171,8 @@ const PathList = ({ paths }) => {
 }
 
 const Buttons = (props) => {
-  const showDeleteButton =  isAuthorised('/admin/users/delete')
-  const showEditButton =  isAuthorised('/admin/users/:userId/edit')
+  const showDeleteButton = Session.isAuthorised('/admin/users/delete')
+  const showEditButton = Session.isAuthorised('/admin/users/:userId/edit')
 
   if (!(showDeleteButton || showEditButton) && !props.isModal) return null
 

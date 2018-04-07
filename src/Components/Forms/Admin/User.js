@@ -9,6 +9,7 @@ import Alert from '../../../Components/Alert'
 import * as FormHelper from '../../../Lib/Helpers/Form'
 import Config from '../../../Config/Admin/Users/Form'
 import DeleteUserButton from '../../Buttons/DeleteUser'
+import * as Session from '../../../Lib/Helpers/Session'
 
 export default class User extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ export default class User extends Component {
       method: 'post',
       axiosCancelToken: null,
       processRequest: false,
-      postRequestError: false,
+      payloadRequestError: false,
       getRequestError: false,
       successMessage: null,
       errorMessage: null
@@ -58,6 +59,8 @@ export default class User extends Component {
   }
 
   handleGetRequest() {
+    if (!Session.decodedToken()) return Session.verifyToken()
+
     const _this = this
     const apiURL = [process.env.REACT_APP_API_USERS_URL, this.state.resourceId].join('/')
     const CancelToken = axios.CancelToken
@@ -95,7 +98,7 @@ export default class User extends Component {
       resource: formData,
       buttonDisabled: true,
       processRequest: true,
-      postRequestError: false,
+      payloadRequestError: false,
       getRequestError: false,
       successMessage: null,
       errorMessage: null
@@ -105,6 +108,8 @@ export default class User extends Component {
   }
 
   handlePayloadRequest(data) {
+    if (!Session.decodedToken()) return Session.verifyToken()
+
     const resourceId = this.state.resourceId
     const method = this.state.method
     const CancelToken = axios.CancelToken
@@ -153,7 +158,7 @@ export default class User extends Component {
         this.setState({
           buttonDisabled: false,
           processRequest: false,
-          postRequestError: true,
+          payloadRequestError: true,
           errorMessage: message
         })
       })
@@ -295,8 +300,8 @@ const ContentWrapper = (props) => {
 }
 
 const FormMessage = (state) => {
-  const showProcessError = state.getRequestError || state.postRequestError
-  const errorMessage = state.postRequestError ? state.errorMessage : 'User is not found or has been deleted.'
+  const showProcessError = state.getRequestError || state.payloadRequestError
+  const errorMessage = state.payloadRequestError ? state.errorMessage : 'User is not found or has been deleted.'
 
   return (
     <div className="form-message">

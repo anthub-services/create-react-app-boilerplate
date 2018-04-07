@@ -67,6 +67,8 @@ export function isAuthorised(path) {
 let verifyTokenTO = 0;
 
 export function verifyToken() {
+  if (!decodedToken()) return window.location.reload()
+
   clearTimeout(verifyTokenTO)
 
   verifyTokenTO = setTimeout(function() {

@@ -9,6 +9,7 @@ import * as DataTableHelper from '../../Lib/Helpers/DataTable'
 import Alert from '../../Components/Alert'
 import ColumnFilters from './ColumnFilters'
 import FormModal from '../Modals/Default'
+import * as Session from '../../Lib/Helpers/Session'
 
 import 'react-table/react-table.css'
 
@@ -117,6 +118,8 @@ class DataTable extends Component {
   }
 
   handleGetRequest(axiosData) {
+    if (!Session.decodedToken()) return Session.verifyToken()
+
     const _this = this
     const CancelToken = axios.CancelToken
     const cancelTokenCallback = {
