@@ -321,6 +321,7 @@ function formDataString(data) {
     email: data.email,
     role: data.role,
     status: data.status,
+    redirect: data.redirect,
     allowedPaths: data.allowedPaths,
     excludedPaths: data.excludedPaths
   })
