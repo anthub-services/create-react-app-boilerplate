@@ -13,6 +13,7 @@ class Sidebar extends Component {
         <ul className="nav nav-sidebar">
           <AuthNavLink title="Dashboard" to="/admin/dashboard" path={path} />
           <AuthNavLink title="Users" to="/admin/users" path={path} />
+          <AuthNavLink title="Sessions" to="/admin/sessions" path={path} />
           <AuthNavLink title="Settings" to="/admin/settings" path={path} />
           <SignOutButton referrer={referrer} />
         </ul>
