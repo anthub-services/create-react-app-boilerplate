@@ -17,6 +17,8 @@ REACT_APP_API_BASE_URL=http://localhost:7770
 REACT_APP_API_SIGN_IN_URL=http://localhost:7770/sign-in
 REACT_APP_API_SIGN_OUT_URL=http://localhost:7770/sign-out
 REACT_APP_API_VERIFY_TOKEN_URL=http://localhost:7770/verify-token
+REACT_APP_API_SESSIONS_URL=http://localhost:7770/sessions
+REACT_APP_API_USERS_URL=http://localhost:7770/users
 REACT_APP_API_JWT_SECRET=jwtsecretcode
 ```
 
@@ -90,6 +92,8 @@ Note: To view the Docker containers, open another terminal console then enter `d
  non-database API server powered by [Express](https://expressjs.com/)
 - [Node Express API Boilerplate](https://github.com/anthub-services/node-express-api-boilerplate) –
  API server powered by [Express](https://expressjs.com/) and [PostgreSQL](https://www.postgresql.org/) database
+- [Rails API Boilerplate](https://github.com/anthub-services/rails-api-boilerplate) –
+ API server powered by [Ruby on Rails](http://rubyonrails.org/) and [PostgreSQL](https://www.postgresql.org/) database
 
 ## Users
 
@@ -111,8 +115,6 @@ use the following credentials to test different API responses. Default password 
 
 The following boilerplates can be used to install and run the API and client boilerplates in a Docker container.
 
-[Docker for Node API Mockup Data and Client Boilerplates](https://github.com/anthub-services/docker-for-node-api-mockup-data-and-client-boilerplates)
-<br />
-[Docker for Node API and Client Boilerplates](https://github.com/anthub-services/docker-for-node-api-and-client-boilerplates)
-<br />
-[Docker for Rails API and Client Boilerplates](https://github.com/anthub-services/docker-for-rails-api-and-client-boilerplates)
+- [Docker for Node API Mockup Data and Client Boilerplates](https://github.com/anthub-services/docker-for-node-api-mockup-data-and-client-boilerplates)
+- [Docker for Node API and Client Boilerplates](https://github.com/anthub-services/docker-for-node-api-and-client-boilerplates)
+- [Docker for Rails API and Client Boilerplates](https://github.com/anthub-services/docker-for-rails-api-and-client-boilerplates)
