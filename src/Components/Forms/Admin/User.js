@@ -138,7 +138,7 @@ export default class User extends Component {
         this.setState({
           formData: data,
           resourceId: data.userId,
-          method: 'put',
+          method,
           processRequest,
           successMessage,
           buttonDisabled: true,
@@ -168,7 +168,9 @@ export default class User extends Component {
     const props = this.props
     const state = this.state
 
-    if (state.method === 'put' && state.successMessage && props.showModal && props.onSuccess) {
+    if (state.successMessage && props.showModal && props.onSuccess) {
+      if (state.method === 'put') return props.onSuccess()
+
       const dataTableState = {
         page: 0,
         sorted: { userId: 'desc'}
