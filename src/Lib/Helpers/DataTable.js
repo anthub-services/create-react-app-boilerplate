@@ -1,8 +1,8 @@
 import React from 'react'
 import _ from 'lodash'
-import QueryString from 'query-string'
 import { queryParamsList } from './Routes'
 import Action from '../../Components/DataTable/Action'
+import * as QueryString from '../Helpers/URL'
 
 export const HEIGHT = '790px'
 
