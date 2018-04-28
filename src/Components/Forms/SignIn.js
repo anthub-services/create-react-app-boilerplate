@@ -35,14 +35,18 @@ export default class SignIn extends Component {
       showAlertMessage: true
     })
 
-    const token = JWT.sign(formData, process.env.REACT_APP_API_JWT_SECRET)
+    const hash  = Session.hash()
+    const token = JWT.sign(formData, hash[0])
+    const tkid  = hash[1]
 
     Axios
-      .post(process.env.REACT_APP_API_SIGN_IN_URL, { token })
+      .post(process.env.REACT_APP_API_SIGN_IN_URL, { token, tkid })
       .then(response => {
-        const { token, redirect } = response.data
+        const { token, data, redirect, tkid } = response.data
 
         Session.store({ token })
+        Session.store({ data })
+        Session.store({ tkid })
 
         this.setState({
           alertMessage: {

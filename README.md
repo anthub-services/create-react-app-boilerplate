@@ -19,8 +19,12 @@ REACT_APP_API_SIGN_OUT_URL=http://localhost:7770/sign-out
 REACT_APP_API_VERIFY_TOKEN_URL=http://localhost:7770/verify-token
 REACT_APP_API_SESSIONS_URL=http://localhost:7770/sessions
 REACT_APP_API_USERS_URL=http://localhost:7770/users
-REACT_APP_API_JWT_SECRET=jwtsecretcode
+REACT_APP_HASH=sha1hash1.sha1hash2.sha1hash3
 ```
+
+NOTE: Generate random hashes and concatenate the hashes with “.”.
+The same hashes should also be used in the API app.
+The more hashes, the better.
 
 ### Config Files
 
@@ -71,20 +75,20 @@ Note: To view the Docker containers, open another terminal console then enter `d
 
 ### Docker
 
-| Command                                | Description                                                            |
-|----------------------------------------|------------------------------------------------------------------------|
-| `./bin/install`                        | Build the Docker container and start the app                           |
-| `./bin/reinstall`                      | Rebuild the Docker container with the current branch and start the app |
-| `./bin/start`                          | Start the client app service                                           |
-| `./bin/stop`                           | Stop the client app service                                            |
-| `./bin/console <container ID or Name>` | Access the terminal console of the container                           |
+| Command                              | Description                                                            |
+|--------------------------------------|------------------------------------------------------------------------|
+| `bin/install`                        | Build the Docker container and start the app                           |
+| `bin/reinstall`                      | Rebuild the Docker container with the current branch and start the app |
+| `bin/start`                          | Start the client app service                                           |
+| `bin/stop`                           | Stop the client app service                                            |
+| `bin/console <container ID or Name>` | Access the terminal console of the container                           |
 
 ### CSS
 
-| Command           | Description                                                         |
-|-------------------|---------------------------------------------------------------------|
-| `./bin/css/watch` | Watch and compile *.scss files on file changes (for Mac users only) |
-| `./bin/css/build` | Manually compile *.scss files                                       |
+| Command         | Description                                                         |
+|-----------------|---------------------------------------------------------------------|
+| `bin/css/watch` | Watch and compile *.scss files on file changes (for Mac users only) |
+| `bin/css/build` | Manually compile *.scss files                                       |
 
 ## Available API App Boilerplates
 

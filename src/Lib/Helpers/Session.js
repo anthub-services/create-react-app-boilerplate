@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import Store from 'store'
 import JWT from 'jsonwebtoken'
 import Axios from '../Common/Axios'
@@ -6,6 +7,18 @@ export function store(data) {
   for (const key in data) {
     Store.set(key, data[key])
   }
+}
+
+export function hash(index) {
+  const hashList = process.env.REACT_APP_HASH.split('.')
+
+  if (index) index = parseInt(index.toString().charAt(index.toString().length - 1), 10)
+  else index = _.random(0, hashList.length - 1)
+
+  return [
+    hashList[index],
+    [_.random(1111111, 9999999), index].join('')
+  ]
 }
 
 export function isSignedIn() {
@@ -46,8 +59,8 @@ export function userRole() {
 /* PAGE ACCESS */
 
 export function showPage(path) {
-  const allowedPaths = tokenData('allowedPaths')
-  const excludedPaths = tokenData('excludedPaths')
+  const allowedPaths = getData('allowedPaths')
+  const excludedPaths = getData('excludedPaths')
 
   if (excludedPaths && excludedPaths.length > 0 && excludedPaths.indexOf(path) > -1) return false
   if (allowedPaths && allowedPaths.toString() === '*') return true
@@ -75,28 +88,34 @@ export function verifyToken() {
     Axios
       .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
       .catch(error => {
-        deleteToken()
+        deleteTokens()
         window.location.reload()
       })
   }, 1000);
+}
+
+export function dataToken() {
+  return Store.get('data')
 }
 
 export function token() {
   return Store.get('token')
 }
 
-export function deleteToken() {
+export function deleteTokens() {
+  Store.remove('data')
   Store.remove('token')
+  Store.remove('tkid')
 }
 
 export function decodedToken() {
-  if (token()) {
+  if (dataToken()) {
     return JWT.verify(
-      token(),
-      process.env.REACT_APP_API_JWT_SECRET,
+      dataToken(),
+      hash(Store.get('tkid'))[0],
       function(errors, decoded) {
         if (errors) {
-          deleteToken()
+          deleteTokens()
           return false
         }
 
@@ -106,6 +125,6 @@ export function decodedToken() {
   }
 }
 
-export function tokenData(data) {
+export function getData(data) {
   return decodedToken() && decodedToken()[data] ? decodedToken()[data] : null
 }

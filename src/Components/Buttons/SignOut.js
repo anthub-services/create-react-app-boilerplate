@@ -11,7 +11,7 @@ export default class SignOut extends Component {
     Axios
       .post(process.env.REACT_APP_API_SIGN_OUT_URL)
       .then(response => {
-        Session.deleteToken()
+        Session.deleteTokens()
         closeNavbar()
         this.props.auth(false)
       })
