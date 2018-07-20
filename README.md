@@ -1,7 +1,7 @@
 # Create React App Boilerplate
 This project is based on the
 [Node API and Client Boilerplate](https://github.com/anthub-services/node-api-and-client-boilerplate).
-Required node version is `9.2.1`.
+Required node version is `9.11.2`.
 The client app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 and [Bootstrap 3.3](http://getbootstrap.com/docs/3.3/) framework and theme.
 
